@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Time Complexity"
-date: 2020-05-07
+date: 2020-05-20
 description: Time complexity of an algorithm quantifies the amount of time taken by the algorithm to run as a function of the length of the input.
 img:  # Add image post (optional)
 use_math: true
