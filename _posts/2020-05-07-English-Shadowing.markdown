@@ -3,7 +3,7 @@ layout: post
 title: "English Shadowing!"
 date: 2020-05-07
 description: Improve speaking English. # Add post description (optional)
-img:  # Add image post (optional)
+img:  bigo/shaowing.jpg
 ---
 
 goal: 
