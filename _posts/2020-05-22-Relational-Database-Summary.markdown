@@ -29,6 +29,7 @@ One man can only have one wife in most countries
 One man can have many wives in Iran.
 3. Many-to-Many
 One man can have many wives while one woman can have many husbands.
+
 ### Data Integrity
 The accuracy and consistency of data
 1. Entity integrity
@@ -56,64 +57,92 @@ A key composed of several columns
 ### Database Normalization
 The process of structuring a relational database in accordance with a series of normal forms in order to reduce data redundancy and improve data integrity.
 
-##### Data Redundancy
+Solve problems:
+
+#### 1. Data Redundancy
 The same information appears in multiple places in the database
 ![image](../assets/img/rdb/1590171704427.png)
 
 The columns **branch, hod, and office_tel** are the same for all the records. So these are data redundancy.
-##### Insertion Anomaly
+#### 2. Insertion Anomaly
 When one attribute cannot be inserted into the database without the presence of other attributes.
 For example, we cannot add a new course unless we have at least one student enrolled on the course.
-##### Update Anomaly
+#### 3. Update Anomaly
 An attribute of a record is changed. This attribute is saved in multiple places. Then we have to make sure to change all the places.
 For example, a teacher changes his/her name. We must make sure all the names are updated.
-#####  Delete Anomaly
+####  4. Delete Anomaly
 The inverse of insertion anomaly. If the presence attributes are deletes, the current attribute does not exist.
 For example, if the only student in a course drops, the course should be deleted too.
-##### Normal Forms
-###### Dependency
-###### Functional Dependency
-A relationship between the primary key and other non-key attributes within a table.
-###### Partial Dependency
-An attribute in a table depends on only a part of the primary key and not on the whole key.
 
-###### Solution
-divide the table, remove the attribute which is causing partial dependency, and move it to some other table where it fits in well.
-###### Transitive Dependency
-A non-primary attribute depends on another non-primary attribute.
-###### Solution
-Create a new table for these attributes and add the primary key in their original table.
-###### Multi-valued Dependency
-For a dependency A->B(B depends on A), a single value of A, multiple value of B exists.
-There are one-to-many relations within a table.
-B does not depend on other columns except A
-Cause repetition of data
-###### Solution
-Decomposite the table into two tables.
-###### First Normal Form(1NF)
-1. single valued attributes.
+#### Normal Forms
+#### 1. First Normal Form(1NF)
+1.1 single valued attributes.
 	Each column of your table should be single valued which means they should not contain multiple values.
 	 ![image](../assets/img/rdb/1590173394243.png)
-2. Values in a column should be in the same domain
-3. All the columns in a table should have unique names
-4. The order of the columns should not matter
-###### Second Normal Form(2NF)
-1. In 1NF 
-2. Do not have partial dependency
+
+1.2. Values in a column should be in the same domain
+
+1.3. All the columns in a table should have unique names
+
+1.4. The order of the columns should not matter
+#### 2. Second Normal Form(2NF)
+2.1. In 1NF 
+
+2.2. Do not have <ins>partial dependency</ins>
+
+**Functional Dependency**: 
+A relationship between the primary key and other non-key attributes within a table.
+
+**Partial Dependency**: 
+An attribute in a table depends on only a part of the primary key and not on the whole key.
+
+**Solution**:
+divide the table, remove the attribute which is causing partial dependency, and move it to some other table where it fits in well.
+
 **Non-primary attribute depend on part of primary key**
-###### Third Normal Form(3NF)
-1. In 2NF
-2. Do not have Transitive Dependency
+
+#### 3. Third Normal Form(3NF)
+3.1. In 2NF
+
+3.2. Do not have <ins>Transitive Dependency</ins>
+
+**Transitive Dependency**
+A non-primary attribute depends on another non-primary attribute.
+
+**Solution**:
+Create a new table for these attributes and add the primary key in their original table.
+
 **Non-primary attribute depends on non-primary attribute**
-###### Boyce and Codd Normal Form(BCNF/3.5NF)
-1. In 3NF
-2.  For any dependency A->B, A should be a super key.
+
+#### 4. Boyce and Codd Normal Form(BCNF/3.5NF)
+4.1. In 3NF
+
+4.2.  For any dependency A->B, A should be a super key.
+
 A cannot be a non-prime attribute, if B is a primary attribute.
+
 A primary attribute cannot depend one a non-primary attribute.
+
 **primary attribute depends on non-primary attribute**
 ![image](../assets/img/rdb/1590174899370.png)
+
 Primary key: student_id and subject
+
 Subject depends on professor. Subject is primary key while professor is not.
-###### 4NF
-1. In BCNF
-2. not have multi-valued dependency
+
+#### 5. Fourth Normal Form(4NF)
+5.1. In BCNF
+
+5.2. Not have <ins>multi-valued dependency</ins>
+
+**Multi-valued Dependency**:
+For a dependency A->B(B depends on A), a single value of A, multiple value of B exists.
+
+There are one-to-many relations within a table.
+
+B does not depend on other columns except A 
+
+Cause repetition of data
+
+**Solution**:
+Decomposite the table into two tables.
