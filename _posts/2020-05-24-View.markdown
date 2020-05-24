@@ -1,0 +1,30 @@
+---
+layout: post
+title: "View"
+date: 2020-05-23
+description: View is a virtual table.
+img: 
+---
+
+View is a virtual table. It builds on one or more tables by SQL statements.
+View is update to date when user query it.
+
+```
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+Update View
+
+```
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+Drop a view
+
+```
+DROP VIEW view_name;
+```

@@ -1,0 +1,63 @@
+---
+layout: post
+title: "Data Manipulation Language(DML)"
+date: 2020-05-23
+description: Insert, update, delete data.
+img: 
+---
+
+
+
+#### Data Manipulation Language(DML)
+##### Insert data
+
+```
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+```
+
+##### Update data
+
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+##### Delete data
+
+```
+DELETE FROM table_name WHERE condition;
+```
+
+##### Copy data from one table into a new table
+
+```
+SELECT *
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;
+```
+Same db
+
+```
+SELECT * INTO CustomersBackup2017
+FROM Customers;
+```
+Another db
+
+```
+SELECT * INTO CustomersBackup2017 IN 'Backup.mdb'
+FROM Customers;
+```
+##### Copy data from one table into another table
+Data types in source and target tables match
+The existing records in target table are unaffected
+
+```
+INSERT INTO table2
+SELECT * FROM table1
+WHERE condition;
+```
